@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/auth/logout', 'Auth\AuthController@getLogout');
+Route::get('/auth/naver', 'NaverAuthController@redirectToProvider');
+Route::get('/auth/naver/callback', 'NaverAuthController@handleProviderCallback');
