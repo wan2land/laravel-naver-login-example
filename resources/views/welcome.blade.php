@@ -2,44 +2,16 @@
 <html>
     <head>
         <title>Laravel</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
     </head>
     <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
+        @if (Auth::user())
+            <h2>로그인 중..</h2>
+            <a href="/auth/logout">로그아웃</a>
+            <h2>로그인정보</h2>
+            <pre>{{ Auth::user() }}</pre>
+        @else
+            <h2>로그인이 필요합니다.</h2>
+            <a href="/auth/naver">네이버로 로그인하기</a>
+        @endif
     </body>
 </html>
